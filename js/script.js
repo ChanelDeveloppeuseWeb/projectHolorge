@@ -11,9 +11,16 @@ function hour(i) {
   
 
 //   function pour afficher le jour
-  
-  const  days = date.getDay();
-  let date = getDate() ;
-  let month = getMonth()
-  let show = days + "." + date +"." + month +"."
+
+let days = ["dimanche","Lundi","Mardi","Mercredi","Jeudi","vendredi","samedi"]
+let mois = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Decembre"]
+  const d = new Date()
+    days = days[d.getDay()];
+  let date = showDays(d.getDate());
+     month = mois[d.getMonth()]
+  let show = days + "." + date +"." + month 
 document.getElementById("showDay").innerHTML = show;
+function showDays(i){
+    if (i < 10) {i = + i}
+    return  i
+}
